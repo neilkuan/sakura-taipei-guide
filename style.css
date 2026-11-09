@@ -17,4 +17,3 @@
 
 .order-phrase{padding:10px 0;border-bottom:1px solid var(--line)}.order-phrase p{margin:0 0 8px}.order-phrase>.copy-status{display:block;font-size:11px;letter-spacing:normal}
 
-.topup-video{margin:24px 0;max-width:780px}.topup-video video{display:block;width:100%;height:auto;background:#252120;border-radius:12px}.topup-video figcaption{font-size:12px;color:var(--muted);margin-top:10px}@media print{.topup-video{display:none}}
