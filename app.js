@@ -69,3 +69,22 @@ document.querySelectorAll('[data-days]').forEach(b=>b.addEventListener('click',(
 })();
 
 document.querySelector('#final-area').addEventListener('change',event=>{finalArea=event.target.value;const n=Number(document.querySelector('[data-days][aria-pressed="true"]').dataset.days);render(n);});
+
+// Copy only the Chinese order, with a selectable-text fallback.
+document.querySelectorAll('[data-copy-order]').forEach(button => {
+  button.addEventListener('click', async () => {
+    const order = document.getElementById(button.dataset.copyOrder);
+    const status = button.nextElementSibling;
+    try {
+      await navigator.clipboard.writeText(order.textContent.trim());
+      status.textContent = 'コピーしました ♡ Google翻訳に貼り付けてね／已複製，可貼到 Google 翻譯';
+    } catch {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(order);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      status.textContent = '中国語を長押ししてコピーしてね／請長按上方中文複製，或直接出示給店員';
+    }
+  });
+});
